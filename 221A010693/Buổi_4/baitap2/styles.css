@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  table {
+    margin: 10px auto;
+    border-collapse: collapse;
+  }
+  
+  input, select {
+    width: 200px;
+    padding: 5px;
+  }
+  
+  button {
+    padding: 6px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

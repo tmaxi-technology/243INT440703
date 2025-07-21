@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="2.css">
+</head>
+<body>
+    <h2>Nhập thông tin sinh viên</h2>
+    <div class="form-container">
+      <div class="form-group">
+        <label>MSSV</label>
+        <input type="text" id="mssv">
+      </div>
+      <div class="form-group">
+        <label>Họ tên</label>
+        <input type="text" id="hoten">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" id="email">
+      </div>
+      <div class="form-group">
+        <label>Giới tính</label>
+        <input type="radio" name="gender" value="Nam" class="gender" checked> Nam
+        <input type="radio" name="gender" value="Nữ" class="gender"> Nữ
+      </div>
+      <div class="form-group">
+        <label>Nơi sinh</label>
+        <select id="noisinh">
+          <option value="TP.HCM">TP.HCM</option>
+          <option value="Hà Nội">Hà Nội</option>
+          <option value="Nha Trang">Nha Trang</option>
+          <option value="Đà Nẵng">Đà Nẵng</option>
+        </select>
+      </div>
+      <button class="btn" onclick="themSinhVien()">Thêm vào danh sách</button>
+    </div>
+  
+    <h2>Danh sách sinh viên</h2>
+    <table id="sinhvienTable">
+      <thead>
+        <tr>
+          <th>MSSV</th>
+          <th>Họ tên</th>
+          <th>Email</th>
+          <th>Giới tính</th>
+          <th>Nơi sinh</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dữ liệu sinh viên sẽ được thêm ở đây -->
+      </tbody>
+    </table>
+    <script src="2.js"></script>
+</body>
+</html>
