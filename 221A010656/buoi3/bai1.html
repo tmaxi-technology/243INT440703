@@ -1,0 +1,175 @@
+<!--Bai nay e tung lam r, code cu cua e tren github a thay-->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Máy Tính JavaScript</title>
+  <style>
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(#5C7285, #818C78);
+    }
+
+    .calculator {
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #E2E0C8;
+    }
+
+    .display {
+      display: flex;
+      justify-content: end;
+      margin: 5px 0px 15px 0px;
+    }
+
+    .display input {
+      text-align: right;
+      flex: 1;
+      font-size: 40px;
+      padding: 5px 10px;
+      background: #6D7E7F;
+      border: none;
+      border-radius: 10px;
+      color: white;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .buttons button {
+      border: none;
+      outline: 0;
+      width: 100%;
+      height: 60px;
+      font-size: 16px;
+      background-color: #A7B49E;
+      border-radius: 10px;
+      color: white;
+      font-weight: bolder;
+      cursor: pointer;
+    }
+
+    .buttons button:hover {
+      background-color: rgba(205, 246, 224, 0.492);
+    }
+
+    .buttons .equal {
+      width: 100%;
+      background-color: #0078D7;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="calculator">
+      <div class="display">
+        <input type="text" id="display" disabled value="0">
+      </div>
+      <div class="buttons">
+        <button onclick="percent()">%</button>
+        <button onclick="clearEntry()">CE</button>
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="backspace()">←</button>
+
+        <button onclick="reciprocal()">1/x</button>
+        <button onclick="square()">x²</button>
+        <button onclick="squareRoot()">√</button>
+        <button onclick="append('/')">÷</button>
+
+        <button onclick="append('7')">7</button>
+        <button onclick="append('8')">8</button>
+        <button onclick="append('9')">9</button>
+        <button onclick="append('*')">×</button>
+
+        <button onclick="append('4')">4</button>
+        <button onclick="append('5')">5</button>
+        <button onclick="append('6')">6</button>
+        <button onclick="append('-')">−</button>
+
+        <button onclick="append('1')">1</button>
+        <button onclick="append('2')">2</button>
+        <button onclick="append('3')">3</button>
+        <button onclick="append('+')">+</button>
+
+        <button onclick="toggleSign()">+/-</button>
+        <button onclick="append('0')">0</button>
+        <button onclick="append('.')">.</button>
+        <button class="equal" onclick="calculate()">=</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+    let justEvaluated = false;
+    let memory = 0;
+
+    function append(value) {
+      if (justEvaluated && !isOperator(value)) {
+        display.value = '';
+      }
+      if (display.value === '0') display.value = '';
+      display.value += value;
+      justEvaluated = false;
+    }
+
+    function isOperator(val) {
+      return ['+', '-', '*', '/', '.'].includes(val);
+    }
+
+    function clearDisplay() {
+      display.value = '0';
+    }
+
+    function clearEntry() {
+      display.value = '0';
+    }
+
+    function backspace() {
+      display.value = display.value.slice(0, -1) || '0';
+    }
+
+    function calculate() {
+      try {
+        display.value = eval(display.value);
+        justEvaluated = true;
+      } catch {
+        display.value = 'Lỗi';
+      }
+    }
+
+    function percent() {
+      let val = parseFloat(display.value);
+      if (!isNaN(val)) display.value = (val / 100).toString();
+    }
+
+    function toggleSign() {
+      let val = parseFloat(display.value);
+      if (!isNaN(val)) display.value = (-val).toString();
+    }
+
+    function square() {
+      let val = parseFloat(display.value);
+      if (!isNaN(val)) display.value = (val * val).toString();
+    }
+
+    function squareRoot() {
+      let val = parseFloat(display.value);
+      if (!isNaN(val)) display.value = Math.sqrt(val).toString();
+    }
+
+    function reciprocal() {
+      let val = parseFloat(display.value);
+      if (!isNaN(val) && val !== 0) display.value = (1 / val).toString();
+    }
+  </script>
+</body>
+</html>
