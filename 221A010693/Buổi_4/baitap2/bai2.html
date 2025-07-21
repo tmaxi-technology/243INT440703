@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài tập 2</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h1>Bài tập 2</h1>
+
+  <h3>Nhập thông tin sinh viên</h3>
+  <table>
+<!-- ----------------------------------------------------------------------------------------------------------------- -->
+    <tr>
+      <td>MSSV</td>
+      <td><input type="text" id="mssv"></td>
+    </tr>
+<!-- ----------------------------------------------------------------------------------------------------------------- -->
+    <tr>
+      <td>Họ tên</td>
+      <td><input type="text" id="hoten"></td>
+    </tr>
+<!-- ----------------------------------------------------------------------------------------------------------------- -->
+    <tr>
+      <td>Email</td>
+      <td><input type="text" id="email"></td>
+    </tr>
+<!-- ----------------------------------------------------------------------------------------------------------------- -->
+    <tr>
+      <td>Giới tính</td>
+      <td>
+        <input type="radio" name="gender" value="Nam" checked> Nam
+        <input type="radio" name="gender" value="Nữ"> Nữ
+      </td>
+    </tr>
+<!-- ----------------------------------------------------------------------------------------------------------------- -->
+    <tr>
+      <td>Nơi sinh</td>
+      <td>
+        <select id="noisinh">
+          <option value="TP.HCM">TP.HCM</option>
+          <option value="Cần Thơ">Cần Thơ</option>
+          <option value="Đà Nẵng">Đà Nẵng</option>
+        </select>
+      </td>
+    </tr>
+<!-- ----------------------------------------------------------------------------------------------------------------- -->
+    <tr>
+      <td colspan="2">
+        <button onclick="themSinhVien()">Thêm vào danh sách</button>
+      </td>
+    </tr>
+<!-- ----------------------------------------------------------------------------------------------------------------- -->
+  </table>
+
+  <h3>Danh sách sinh viên</h3>
+  <table border="1" id="bangSinhVien" style="width: 80%; margin: auto; text-align: center;">
+    <thead>
+      <tr>
+        <th>MSSV</th>
+        <th>Họ tên</th>
+        <th>Email</th>
+        <th>Giới tính</th>
+        <th>Nơi sinh</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Dữ liệu sinh viên sẽ thêm vào đây -->
+    </tbody>
+  </table>
+</body>
+</html>
